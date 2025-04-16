@@ -52,7 +52,7 @@ This model favors **localized micro-meshes** rather than sprawling, multi-hop to
 
 Not all traffic needs MAC-layer ACKs. For example:
 - **TCP traffic** already handles reliability and retransmissions
-- **UDP-based real-time traffic** (e.g. VoIP, video) prefers latency over reliability
+- **UDP-based real-time traffic** (e.g. VoIP, video) prefers low latency over reliability
 
 By disabling Wi-Fi MAC ACKs for certain traffic types, we can:
 - Reduce latency
@@ -66,7 +66,7 @@ By disabling Wi-Fi MAC ACKs for certain traffic types, we can:
 A single **transport-layer flag** could tell Wi-Fi whether MAC ACKs are needed:
 - One bit in **TCP or UDP headers**
 - If set: "Skip MAC-layer ACKs, let me handle it"
-- Survives NAT and is visible end-to-end, unlike DSCP/TOS
+- Survives NAT and is visible end-to-end, unlike DSCP/TOS which is often not preserved end to end
 
 This would give applications and protocols **explicit control** over how their traffic is handled at lower layers.
 
@@ -83,3 +83,4 @@ This creates an **adaptive reliability model** that adjusts to network condition
 
 ---
 
+📄 Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — use freely with attribution.
